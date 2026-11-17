@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Attendance Rescue | 75% Survival Planner</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <div class="logo">
+            🎓 Attendance Rescue
+        </div>
+
+        <div class="target-badge">
+            🎯 Target: 75%
+        </div>
+
+    </header>
+
+
+
+    <!-- ================= HERO SECTION ================= -->
+
+    <section class="hero">
+
+        <p class="small-heading">
+            STUDENT ATTENDANCE PLANNER
+        </p>
+
+        <h1>
+            Will You Survive the
+            <span>75% Rule?</span>
+        </h1>
+
+        <p class="hero-text">
+            Enter your attendance details and find out exactly how many
+            classes you need to attend to reach the 75% target.
+        </p>
+
+    </section>
+
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main>
+
+
+        <!-- ================= CALCULATOR ================= -->
+
+        <section class="calculator-card">
+
+            <div class="card-heading">
+
+                <div>
+
+                    <p class="section-label">
+                        ATTENDANCE CHECK
+                    </p>
+
+                    <h2>
+                        How's your attendance looking?
+                    </h2>
+
+                </div>
+
+
+                <span class="live-badge">
+                    ● READY
+                </span>
+
+            </div>
+
+
+
+            <!-- INPUT FIELDS -->
+
+            <div class="input-container">
+
+
+                <div class="input-group">
+
+                    <label for="held">
+                        Total Classes Held
+                    </label>
+
+                    <input
+                        type="number"
+                        id="held"
+                        placeholder="e.g. 40"
+                        min="1"
+                        step="1"
+                    >
+
+                    <small>
+                        Total classes conducted so far
+                    </small>
+
+                </div>
+
+
+
+                <div class="input-group">
+
+                    <label for="attended">
+                        Classes Attended
+                    </label>
+
+                    <input
+                        type="number"
+                        id="attended"
+                        placeholder="e.g. 25"
+                        min="0"
+                        step="1"
+                    >
+
+                    <small>
+                        Classes you were present in
+                    </small>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- CALCULATE BUTTON -->
+
+            <button
+                class="calculate-btn"
+                onclick="calculateAttendance()"
+            >
+                Check My Attendance →
+            </button>
+
+
+        </section>
+
+
+
+        <!-- ================= RESULT ================= -->
+
+        <section class="result-card" id="resultCard">
+
+            <p class="section-label">
+                CURRENT ATTENDANCE
+            </p>
+
+
+            <div
+                class="percentage"
+                id="percentage"
+            >
+                --%
+            </div>
+
+
+            <div
+                class="status"
+                id="status"
+            >
+                Waiting for your attendance
+            </div>
+
+
+            <p
+                class="result-message"
+                id="message"
+            >
+                Enter your class details above to generate your attendance plan.
+            </p>
+
+
+
+            <!-- PROGRESS INFORMATION -->
+
+            <div class="progress-info">
+
+                <span>
+                    Your Attendance
+                </span>
+
+                <span>
+                    Target: 75%
+                </span>
+
+            </div>
+
+
+
+            <!-- PROGRESS BAR -->
+
+            <div class="progress-container">
+
+                <div
+                    class="progress-bar"
+                    id="progressBar"
+                >
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ================= RECOVERY PLAN ================= -->
+
+        <section
+            class="recovery-card"
+            id="recoveryCard"
+        >
+
+
+            <div class="recovery-heading">
+
+                <div>
+
+                    <p class="section-label">
+                        YOUR RECOVERY PLAN
+                    </p>
+
+                    <h2>
+                        Your path to 75%
+                    </h2>
+
+                </div>
+
+
+                <span class="plan-icon">
+                    📈
+                </span>
+
+            </div>
+
+
+
+            <!-- NUMBER OF CLASSES -->
+
+            <div class="classes-needed">
+
+                <span
+                    class="big-number"
+                    id="classesNeeded"
+                >
+                    --
+                </span>
+
+
+                <div>
+
+                    <strong>
+                        CLASSES
+                    </strong>
+
+                    <p>
+                        to attend consecutively
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- CURRENT TO TARGET -->
+
+            <div class="plan-details">
+
+
+                <div class="plan-box">
+
+                    <span>
+                        Current
+                    </span>
+
+                    <strong
+                        id="currentPlanPercentage"
+                    >
+                        --%
+                    </strong>
+
+                </div>
+
+
+
+                <div class="arrow">
+                    →
+                </div>
+
+
+
+                <div class="plan-box target-box">
+
+                    <span>
+                        Target
+                    </span>
+
+                    <strong>
+                        75%
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <p
+                class="future-result"
+                id="futureResult"
+            >
+                Calculate your attendance to see your recovery plan.
+            </p>
+
+
+        </section>
+
+
+
+        <!-- ================= CALCULATION EXPLANATION ================= -->
+
+        <section class="explanation-card">
+
+
+            <div class="explanation-title">
+
+                <p class="section-label">
+                    BEHIND THE RESULT
+                </p>
+
+
+                <h2>
+                    🧠 How was this calculated?
+                </h2>
+
+            </div>
+
+
+
+            <p>
+                If a student attends every upcoming class, both the number
+                of classes attended and the total number of classes increase.
+            </p>
+
+
+
+            <!-- FORMULA -->
+
+            <div class="formula">
+
+                (Attended + x) / (Held + x) ≥ 0.75
+
+            </div>
+
+
+
+            <p>
+                Here, <strong>x</strong> represents the minimum number of
+                consecutive future classes that must be attended.
+            </p>
+
+
+
+            <!-- WHOLE CLASS RULE -->
+
+            <div class="whole-class-note">
+
+                <span>
+                    💡
+                </span>
+
+                <p>
+
+                    <strong>
+                        Whole-class rule:
+                    </strong>
+
+                    <code>Math.ceil()</code>
+
+                    rounds the result upward because a student cannot
+                    attend a fraction of a class.
+
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ================= EXTRA FEATURE ================= -->
+
+        <section
+            class="skip-card"
+            id="skipCard"
+        >
+
+
+            <p class="section-label">
+                EXTRA PLANNER FEATURE
+            </p>
+
+
+            <h2>
+                😎 Can I Skip a Class?
+            </h2>
+
+
+            <p>
+                Already above 75%? Attendance Rescue can also estimate
+                how many upcoming classes you could miss while remaining
+                at or above the target.
+            </p>
+
+
+
+            <div
+                class="skip-result"
+                id="skipResult"
+            >
+                Reach 75% first to unlock this result.
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ================= TEST CASE LAB ================= -->
+
+        <section class="test-lab">
+
+
+            <div class="test-heading">
+
+
+                <p class="section-label">
+                    ASSIGNMENT REQUIREMENT
+                </p>
+
+
+                <h2>
+                    🧪 Test Case Lab
+                </h2>
+
+
+                <p>
+                    Run the three required cases to verify the program's
+                    conditional logic.
+                </p>
+
+
+            </div>
+
+
+
+            <div class="test-grid">
+
+
+                <!-- CASE 1 -->
+
+                <div class="test-card danger-test">
+
+
+                    <span class="test-number">
+                        CASE 01
+                    </span>
+
+
+                    <h3>
+                        🔴 Below Target
+                    </h3>
+
+
+                    <p>
+                        Classes Held:
+                        <strong>40</strong>
+                    </p>
+
+
+                    <p>
+                        Attended:
+                        <strong>25</strong>
+                    </p>
+
+
+                    <p class="expected">
+                        Expected: Recovery plan required
+                    </p>
+
+
+                    <button onclick="testBelow()">
+                        Run Case
+                    </button>
+
+
+                </div>
+
+
+
+                <!-- CASE 2 -->
+
+                <div class="test-card success-test">
+
+
+                    <span class="test-number">
+                        CASE 02
+                    </span>
+
+
+                    <h3>
+                        🟢 At Target
+                    </h3>
+
+
+                    <p>
+                        Classes Held:
+                        <strong>40</strong>
+                    </p>
+
+
+                    <p>
+                        Attended:
+                        <strong>30</strong>
+                    </p>
+
+
+                    <p class="expected">
+                        Expected: Exactly 75%
+                    </p>
+
+
+                    <button onclick="testTarget()">
+                        Run Case
+                    </button>
+
+
+                </div>
+
+
+
+                <!-- CASE 3 -->
+
+                <div class="test-card invalid-test">
+
+
+                    <span class="test-number">
+                        CASE 03
+                    </span>
+
+
+                    <h3>
+                        ❌ Invalid Entry
+                    </h3>
+
+
+                    <p>
+                        Classes Held:
+                        <strong>40</strong>
+                    </p>
+
+
+                    <p>
+                        Attended:
+                        <strong>45</strong>
+                    </p>
+
+
+                    <p class="expected">
+                        Expected: Error message
+                    </p>
+
+
+                    <button onclick="testInvalid()">
+                        Run Case
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+
+        <div>
+
+            <strong>
+                🎓 Attendance Rescue
+            </strong>
+
+            <p>
+                A JavaScript-based Student Attendance Planner
+            </p>
+
+        </div>
+
+
+        <p class="footer-line">
+            Because 74.9% is a dangerous place to live. 😭
+        </p>
+
+
+    </footer>
+
+
+
+    <!-- CONNECTING JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
